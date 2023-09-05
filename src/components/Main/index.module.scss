@@ -1,0 +1,256 @@
+@import "../../index.scss";
+
+.main {
+  margin: 20px 0;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.25);
+
+  @include adapt("padding", 30px, 25px, 20px, 15px, 15px);
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  &__item {
+    padding: 25px 30px;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    color: #ffffff;
+
+    &:hover {
+      .image {
+        transform: scale(1.05);
+      }
+    }
+
+    &.dark {
+      color: #00325c;
+    }
+
+    .header {
+      position: relative;
+
+      display: flex;
+      flex-direction: column;
+
+      z-index: 3;
+
+      &__title {
+        margin-bottom: 0;
+        leading-trim: both;
+        text-edge: cap;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+      }
+
+      &__subtitle {
+        margin-bottom: 0;
+        leading-trim: both;
+        text-edge: cap;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+      }
+    }
+
+    .image {
+      position: absolute;
+
+      z-index: 2;
+
+      transition: transform 300ms ease-in-out;
+    }
+  }
+
+  &First {
+    margin-bottom: 20px;
+
+    @include adaptive-md {
+      flex-direction: row;
+    }
+
+    @include adaptive-xl {
+      margin-bottom: 0;
+      flex-direction: column;
+    }
+
+    .col__item {
+      flex-grow: 1;
+      height: 365px;
+
+      &:first-child {
+        background-color: #1c3f5c;
+
+        .image {
+          left: 0;
+          bottom: 0;
+        }
+      }
+
+      &:last-child {
+        background-color: #e1e1e1;
+
+        .image {
+          left: 0;
+          bottom: 0;
+        }
+      }
+    }
+  }
+
+  &Second {
+    .row {
+      height: 100%;
+
+      .col {
+        &SubFirst {
+          margin-bottom: 20px;
+
+          @include adaptive-sm {
+            margin-bottom: 0;
+          }
+
+          .col__item {
+            &:first-child {
+              flex-shrink: 0;
+              background-color: #0078db;
+              height: 190px;
+
+              .image {
+                right: 0;
+                top: 0;
+              }
+            }
+
+            &:last-child {
+              background-color: hsl(207, 53%, 24%);
+              height: 300px;
+
+              @include adaptive-xl {
+                height: 100%;
+              }
+
+              .image {
+                left: 0;
+
+                @include adaptive-xl {
+                  left: -80px;
+                  bottom: 0;
+                }
+
+                @include adaptive-xxl {
+                  left: 0;
+                  bottom: 0;
+                }
+              }
+            }
+          }
+        }
+
+        &SubSecond {
+          .col__item {
+            flex-grow: 1;
+
+            &:first-child {
+              flex-shrink: 0;
+              background-color: #e1e1e1;
+              height: 280px;
+
+              .image {
+                bottom: -110px;
+                right: 0;
+
+                @include adaptive-xl {
+                  bottom: 0;
+                  right: 0;
+                }
+              }
+            }
+
+            &:last-child {
+              background-color: #449ae1;
+              height: 200px;
+
+              @include adaptive-sm {
+                height: 100%;
+              }
+
+              .image {
+                bottom: 0;
+                right: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .wide {
+      padding: 20px 30px;
+      height: 83px;
+      background-color: #1c3f5c;
+      margin-bottom: 20px;
+
+      @include adaptive-xl {
+        margin-bottom: 0;
+      }
+
+      .image {
+        bottom: 0;
+        right: 0;
+      }
+    }
+  }
+
+  &Third {
+    flex-direction: column;
+
+    @include adaptive-sm {
+      flex-direction: row;
+    }
+
+    @include adaptive-xl {
+      flex-direction: column;
+    }
+
+    .col__item {
+      flex-grow: 1;
+
+      &:first-child {
+        height: 340px;
+        background-color: #0078db;
+
+        @include adaptive-sm {
+          height: 100%;
+        }
+
+        @include adaptive-xl {
+          height: 340px;
+        }
+
+        .image {
+          right: 0;
+          bottom: 0;
+        }
+      }
+
+      &:last-child {
+        height: 390px;
+        background-color: #e1e1e1;
+
+        .image {
+          right: 0;
+          bottom: 0;
+        }
+      }
+    }
+  }
+}

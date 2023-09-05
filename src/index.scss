@@ -1,0 +1,102 @@
+// responsive
+$screen-xxl: 1400px;
+$screen-xl: 1200px;
+$screen-lg: 992px;
+$screen-md: 768px;
+$screen-sm: 576px;
+
+@mixin adaptive-xxl {
+  @media screen and (min-width: $screen-xxl) {
+    @content;
+  }
+}
+
+@mixin adaptive-xl {
+  @media screen and (min-width: $screen-xl) {
+    @content;
+  }
+}
+
+@mixin adaptive-lg {
+  @media screen and (min-width: $screen-lg) {
+    @content;
+  }
+}
+
+@mixin adaptive-md {
+  @media screen and (min-width: $screen-md) {
+    @content;
+  }
+}
+
+@mixin adaptive-sm {
+  @media screen and (min-width: $screen-sm) {
+    @content;
+  }
+}
+
+@mixin adapt($property, $xxl, $xl, $lg, $md, $sm) {
+  #{$property}: $sm;
+
+  @include adaptive-sm {
+    #{$property}: $sm;
+  }
+
+  @include adaptive-md {
+    #{$property}: $md;
+  }
+
+  @include adaptive-lg {
+    #{$property}: $lg;
+  }
+
+  @include adaptive-xl {
+    #{$property}: $xl;
+  }
+
+  @include adaptive-xxl {
+    #{$property}: $xxl;
+  }
+}
+
+// thin
+@font-face {
+  font-family: "Ruberoid";
+  font-weight: 300;
+  src: url("./assets/fonts/Ruberoid-Thin.woff2") format("woff2"),
+    url("./assets/fonts/Ruberoid-Thin.woff") format("woff");
+}
+
+// regular
+@font-face {
+  font-family: "Ruberoid";
+  font-weight: 400;
+  src: url("./assets/fonts/Ruberoid-Regular.woff2") format("woff2"),
+    url("./assets/fonts/Ruberoid-Regular.woff") format("woff");
+}
+
+// medium
+@font-face {
+  font-family: "Ruberoid";
+  font-weight: 500;
+  src: url("./assets/fonts/Ruberoid-Medium.woff2") format("woff2"),
+    url("./assets/fonts/Ruberoid-Medium.woff") format("woff");
+}
+
+// semibold
+@font-face {
+  font-family: "Ruberoid";
+  font-weight: 600;
+  src: url("./assets/fonts/Ruberoid-SemiBold.woff2") format("woff2"),
+    url("./assets/fonts/Ruberoid-SemiBold.woff") format("woff");
+}
+
+* {
+  font-family: Ruberoid;
+}
+
+.Container {
+  padding: 0 15px;
+  max-width: 1410px;
+  margin: 0 auto;
+}
