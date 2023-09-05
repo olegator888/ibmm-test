@@ -164,6 +164,10 @@
               background-color: #e1e1e1;
               height: 280px;
 
+              @include adaptive-xl {
+                height: 376px;
+              }
+
               .image {
                 bottom: -110px;
                 right: 0;
