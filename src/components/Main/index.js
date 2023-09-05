@@ -1,3 +1,6 @@
+import { motion, useAnimation } from "framer-motion";
+import { useEffect } from "react";
+
 import classNames from "../../lib/classNames";
 
 import Asic from "../../assets/asic.png";
@@ -12,7 +15,25 @@ import Hotel from "../../assets/hotel.png";
 
 import style from "./index.module.scss";
 
+const animationVariants = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+  },
+};
+
+const animationDuration = 0.4;
+const animationDelayDelta = 0.08;
+
 const Main = () => {
+  const animationControls = useAnimation();
+
+  useEffect(() => {
+    animationControls.start("visible");
+  }, [animationControls]);
+
   return (
     <div className={style.main}>
       <div className="row">
@@ -23,20 +44,35 @@ const Main = () => {
             style.colFirst
           )}
         >
-          <div className={style.col__item}>
+          <motion.div
+            variants={animationVariants}
+            initial="hidden"
+            animate={animationControls}
+            transition={{ duration: animationDuration }}
+            className={style.col__item}
+          >
             <div className={style.header}>
               <h4 className={style.header__title}>Bitmain</h4>
               <p className={style.header__subtitle}>Asic майнеры</p>
             </div>
             <img className={style.image} src={Asic} alt="Product" />
-          </div>
-          <div className={classNames(style.col__item, style.dark)}>
+          </motion.div>
+          <motion.div
+            variants={animationVariants}
+            initial="hidden"
+            animate={animationControls}
+            transition={{
+              duration: animationDuration,
+              delay: animationDelayDelta,
+            }}
+            className={classNames(style.col__item, style.dark)}
+          >
             <div className={style.header}>
               <h4 className={style.header__title}>Whatsminer</h4>
               <p className={style.header__subtitle}>Asic майнеры</p>
             </div>
             <img className={style.image} src={M50s} alt="Product" />
-          </div>
+          </motion.div>
         </div>
 
         <div
@@ -54,20 +90,38 @@ const Main = () => {
                 style.colSubFirst
               )}
             >
-              <div className={style.col__item}>
+              <motion.div
+                variants={animationVariants}
+                initial="hidden"
+                animate={animationControls}
+                transition={{
+                  duration: animationDuration,
+                  delay: animationDelayDelta * 2,
+                }}
+                className={style.col__item}
+              >
                 <div className={style.header}>
                   <h4 className={style.header__title}>Майнинг</h4>
                   <p className={style.header__subtitle}>пул</p>
                 </div>
                 <img className={style.image} src={Coin} alt="Product" />
-              </div>
-              <div className={style.col__item}>
+              </motion.div>
+              <motion.div
+                variants={animationVariants}
+                initial="hidden"
+                animate={animationControls}
+                transition={{
+                  duration: animationDuration,
+                  delay: animationDelayDelta * 3,
+                }}
+                className={style.col__item}
+              >
                 <div className={style.header}>
                   <h4 className={style.header__title}>Майнинг</h4>
                   <p className={style.header__subtitle}>контейнер</p>
                 </div>
                 <img className={style.image} src={Container} alt="Product" />
-              </div>
+              </motion.div>
             </div>
             <div
               className={classNames(
@@ -76,29 +130,56 @@ const Main = () => {
                 style.colSubSecond
               )}
             >
-              <div className={classNames(style.col__item, style.dark)}>
+              <motion.div
+                variants={animationVariants}
+                initial="hidden"
+                animate={animationControls}
+                transition={{
+                  duration: animationDuration,
+                  delay: animationDelayDelta * 5,
+                }}
+                className={classNames(style.col__item, style.dark)}
+              >
                 <div className={style.header}>
                   <h4 className={style.header__title}>Майнинг</h4>
                   <p className={style.header__subtitle}>отель</p>
                 </div>
                 <img className={style.image} src={Hotel} alt="Product" />
-              </div>
-              <div className={style.col__item}>
+              </motion.div>
+              <motion.div
+                variants={animationVariants}
+                initial="hidden"
+                animate={animationControls}
+                transition={{
+                  duration: animationDuration,
+                  delay: animationDelayDelta * 6,
+                }}
+                className={style.col__item}
+              >
                 <div className={style.header}>
                   <h4 className={style.header__title}>Газопоршневая</h4>
                   <p className={style.header__subtitle}>электростанция</p>
                 </div>
                 <img className={style.image} src={Gas} alt="Product" />
-              </div>
+              </motion.div>
             </div>
           </div>
-          <div className={classNames("col-12", style.col__item, style.wide)}>
+          <motion.div
+            variants={animationVariants}
+            initial="hidden"
+            animate={animationControls}
+            transition={{
+              duration: animationDuration,
+              delay: animationDelayDelta * 4,
+            }}
+            className={classNames("col-12", style.col__item, style.wide)}
+          >
             <div className={style.header}>
               <h4 className={style.header__title}>Блокчейн</h4>
               <p className={style.header__subtitle}>разработка</p>
             </div>
             <img className={style.image} src={Blockchain} alt="Product" />
-          </div>
+          </motion.div>
         </div>
 
         <div
@@ -108,20 +189,38 @@ const Main = () => {
             style.colThird
           )}
         >
-          <div className={style.col__item}>
+          <motion.div
+            variants={animationVariants}
+            initial="hidden"
+            animate={animationControls}
+            transition={{
+              duration: animationDuration,
+              delay: animationDelayDelta * 7,
+            }}
+            className={style.col__item}
+          >
             <div className={style.header}>
               <h4 className={style.header__title}>Майнеры</h4>
               <p className={style.header__subtitle}>оптом</p>
             </div>
             <img className={style.image} src={Boxes} alt="Product" />
-          </div>
-          <div className={classNames(style.col__item, style.dark)}>
+          </motion.div>
+          <motion.div
+            variants={animationVariants}
+            initial="hidden"
+            animate={animationControls}
+            transition={{
+              duration: animationDuration,
+              delay: animationDelayDelta * 8,
+            }}
+            className={classNames(style.col__item, style.dark)}
+          >
             <div className={style.header}>
               <h4 className={style.header__title}>Водоблоки</h4>
               <p className={style.header__subtitle}>для майнинга</p>
             </div>
             <img className={style.image} src={Water} alt="Product" />
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>
